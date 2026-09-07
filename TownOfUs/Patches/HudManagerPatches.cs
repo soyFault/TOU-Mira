@@ -533,7 +533,10 @@ public static class HudManagerPatches
             }
             if (MiraHudHelper.SubmergedFloorButton && PlayerControl.LocalPlayer.Data.Role is IGhostRole ghost)
             {
-                MiraHudHelper.SubmergedFloorButton.SetActive(ghost.Caught);
+                MiraHudHelper.SubmergedFloorButton.SetActive(PlayerControl.LocalPlayer.Data != null &&
+                                                             PlayerControl.LocalPlayer.Data.IsDead &&
+                                                             !ghost.GhostActive
+                );
             }
         }
     }
