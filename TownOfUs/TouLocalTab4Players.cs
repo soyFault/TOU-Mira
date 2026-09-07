@@ -8,7 +8,7 @@ namespace TownOfUs;
 
 public class TouLocalTabPlayers(ConfigFile config) : LocalSettingsTab(config)
 {
-    public override string TabName => "Players";
+    public override string TabName => "<size=80%>Jugadores</size>";
     protected override bool ShouldCreateLabels => true;
 
     public override void OnOptionChanged(ConfigEntryBase configEntry)
@@ -43,19 +43,19 @@ public class TouLocalTabPlayers(ConfigFile config) : LocalSettingsTab(config)
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ColorPlayerNameToggle { get; private set; } =
-        config.Bind("UI / Visuals", "ColorPlayerName", false);
+        config.Bind("IU / Visuales", "ColorPlayerName", false);
 
     [LocalEnumSetting(names: ["NameStyleTop", "NameStyleTopSmall", "NameStyleBottom", "NameStyleBottomSmall"])]
     public ConfigEntry<NameStyle> RoleNameStyle { get; private set; } =
-        config.Bind("UI / Visuals", "RoleNameStyle", NameStyle.TopSmall);
+        config.Bind("IU / Visuales", "RoleNameStyle", NameStyle.TopSmall);
 
     [LocalEnumSetting(names: ["ProgressTrackingNever", "ProgressTrackingOnSelf", "ProgressTrackingOnOthers", "ProgressTrackingAlways"])]
     public ConfigEntry<ProgressTracking> DisplayPlayerProgress { get; private set; } =
-        config.Bind("UI / Visuals", "DisplayPlayerProgress", ProgressTracking.Always);
+        config.Bind("IU / Visuales", "DisplayPlayerProgress", ProgressTracking.Always);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ShowRoleIcons { get; private set; } =
-        config.Bind("UI / Visuals", "ShowRoleIcons", true);
+        config.Bind("IU / Visuales", "ShowRoleIcons", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> UseCrewmateTeamColorToggle { get; private set; } =

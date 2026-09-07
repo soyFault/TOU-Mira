@@ -69,23 +69,23 @@ public class TouLocalTabGameplay(ConfigFile config) : LocalSettingsTab(config)
 
     [LocalEnumSetting(names: ["PiPLocationTopLeft", "PiPLocationMiddleLeft", "PiPLocationBottomLeft", "PiPLocationTopRight", "PiPLocationMiddleRight", "PiPLocationBottomRight", "PiPLocationDynamic"])]
     public ConfigEntry<ParasitePiPLocation> ParasitePiPLocation { get; private set; } =
-        config.Bind("Role Visuals", "ParasitePiPLocation", TownOfUs.ParasitePiPLocation.Dynamic);
+        config.Bind("Visuales de Rol", "ParasitePiPLocation", TownOfUs.ParasitePiPLocation.Dynamic);
 
     [LocalEnumSetting(names: ["PiPSizeNormal", "PiPSizeSmall", "PiPSizeLarge"])]
     public ConfigEntry<ParasitePiPSize> ParasitePiPSize { get; private set; } =
-        config.Bind("Role Visuals", "ParasitePiPSize", TownOfUs.ParasitePiPSize.Normal);
+        config.Bind("Visuales de Rol", "ParasitePiPSize", TownOfUs.ParasitePiPSize.Normal);
 
     [LocalEnumSetting(names: ["FlashWhite", "FlashLightGray", "FlashGray", "FlashDarkGray"])]
     public ConfigEntry<GrenadeFlashColor> GrenadierFlashColor { get; private set; } =
-        config.Bind("Role Visuals", "GrenadierFlashColor", GrenadeFlashColor.LightGray);
+        config.Bind("Visuales de Rol", "GrenadierFlashColor", GrenadeFlashColor.LightGray);
 
     [LocalEnumSetting(names: ["SonarHeartbeats", "SonarArrows"])]
     public ConfigEntry<SonarTargetStyle> SonarTargetType { get; private set; } =
-        config.Bind("Role Visuals", "SonarTargetType", SonarTargetStyle.Heartbeats);
+        config.Bind("Visuales de Rol", "SonarTargetType", SonarTargetStyle.Heartbeats);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ProsecutorProsToggling { get; private set; } =
-        config.Bind("Role Visuals", "ProsecutorProsToggling", false);
+        config.Bind("Visuales de Rol", "ProsecutorProsToggling", false);
 }
 
 public enum SonarTargetStyle

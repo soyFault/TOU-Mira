@@ -11,7 +11,7 @@ namespace TownOfUs;
 
 public class TouLocalTabButtons(ConfigFile config) : LocalSettingsTab(config)
 {
-    public override string TabName => "UI / UX";
+    public override string TabName => "IU / UX";
     protected override bool ShouldCreateLabels => true;
 
     public override void OnOptionChanged(ConfigEntryBase configEntry)
@@ -55,27 +55,27 @@ public class TouLocalTabButtons(ConfigFile config) : LocalSettingsTab(config)
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ZoomOnBottomRow { get; private set; } =
-        config.Bind("UI / Visuals", "ZoomOnBottomRow", false);
+        config.Bind("IU / Visuales", "ZoomOnBottomRow", false);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ShowShieldHudToggle { get; private set; } =
-        config.Bind("UI / Visuals", "ShowShieldHud", true);
+        config.Bind("IU / Visuales", "ShowShieldHud", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ShowBasicAssassinOnHud { get; private set; } =
-        config.Bind("UI / Visuals", "ShowBasicAssassinOnHud", true);
+        config.Bind("IU / Visuales", "ShowBasicAssassinOnHud", true);
 
     [LocalEnumSetting(names: ["ModStampTopLeft", "ModStampTopRight", "ModStampBottomLeft", "ModStampBottomRight"])]
     public ConfigEntry<ModStampLocation> ModStampPlacement { get; private set; } =
-        config.Bind("UI / Visuals", "ModStampPlacement", ModStampLocation.TopRight);
+        config.Bind("IU / Visuales", "ModStampPlacement", ModStampLocation.TopRight);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> PreciseCooldownsToggle { get; private set; } =
-        config.Bind("Abilities", "PreciseCooldowns", true);
+        config.Bind("Habilidades", "PreciseCooldowns", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> OffsetButtonsToggle { get; private set; } =
-        config.Bind("Abilities", "OffsetButtons", false);
+        config.Bind("Habilidades", "OffsetButtons", false);
 }
 
 public enum ModStampLocation

@@ -10,7 +10,7 @@ namespace TownOfUs;
 
 public class TouLocalTabActions(ConfigFile config) : LocalSettingsTab(config)
 {
-    public override string TabName => "Actions";
+    public override string TabName => "<size=80%>Acciones</size>";
     protected override bool ShouldCreateLabels => true;
 
     public override LocalSettingTabAppearance TabAppearance => new()
@@ -20,28 +20,28 @@ public class TouLocalTabActions(ConfigFile config) : LocalSettingsTab(config)
     };
 
     [LocalSettingsButton]
-    public LocalSettingsButton SelfKillButton { get; private set; } = new("Self Kill", TriggerSelfKill);
+    public LocalSettingsButton SelfKillButton { get; private set; } = new("Autoasesinato", TriggerSelfKill);
     private static void TriggerSelfKill()
     {
         DoActionType(BindActionType.SelfKill);
     }
 
     [LocalSettingsButton]
-    public LocalSettingsButton AbortGameButton { get; private set; } = new("Abort Game", TriggerAbortGame);
+    public LocalSettingsButton AbortGameButton { get; private set; } = new("Abortar Partida", TriggerAbortGame);
     private static void TriggerAbortGame()
     {
         DoActionType(BindActionType.AbortGame);
     }
 
     [LocalSettingsButton]
-    public LocalSettingsButton StartMeetingButton { get; private set; } = new("Start Meeting", TriggerStartMeeting);
+    public LocalSettingsButton StartMeetingButton { get; private set; } = new("Iniciar Reunión", TriggerStartMeeting);
     private static void TriggerStartMeeting()
     {
         DoActionType(BindActionType.StartMeeting);
     }
 
     [LocalSettingsButton]
-    public LocalSettingsButton EndMeetingButton { get; private set; } = new("End Meeting", TriggerEndMeeting);
+    public LocalSettingsButton EndMeetingButton { get; private set; } = new("Finalizar Reunión", TriggerEndMeeting);
     private static void TriggerEndMeeting()
     {
         DoActionType(BindActionType.EndMeeting);
@@ -49,19 +49,19 @@ public class TouLocalTabActions(ConfigFile config) : LocalSettingsTab(config)
 
     [LocalToggleSetting]
     public ConfigEntry<bool> SelfKillBindToggle { get; private set; } =
-        config.Bind("Keybind Toggles", "SelfKillBindToggle", false);
+        config.Bind("Atajos de teclado", "SelfKillBindToggle", false);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> AbortGameBindToggle { get; private set; } =
-        config.Bind("Keybind Toggles", "AbortGameBindToggle", true);
+        config.Bind("Atajos de teclado", "AbortGameBindToggle", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> StartMeetingBindToggle { get; private set; } =
-        config.Bind("Keybind Toggles", "StartMeetingBindToggle", true);
+        config.Bind("Atajos de teclado", "StartMeetingBindToggle", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> EndMeetingBindToggle { get; private set; } =
-        config.Bind("Keybind Toggles", "EndMeetingBindToggle", true);
+        config.Bind("Atajos de teclado", "EndMeetingBindToggle", true);
 
     private static void DoActionType(BindActionType type)
     {
