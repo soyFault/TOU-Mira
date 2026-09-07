@@ -1281,44 +1281,21 @@
     {
       "Date": "2026-09-06T12:51:00Z",
       "Number": "100047",
-      "ShortTitle": "TOU: Mira v1.7.3",
-      "Title": "Curse of the Judge",
-      "SubTitle": "Anticheat so good, it triggers every time!",
+      "ShortTitle": "TOUM 1.7.3 mod",
+      "Title": "Hola pootos",
+      "SubTitle": "Soi io, faulini",
       "Text": [
-        "<b>This update primarily focuses on fixing issues with anticheat caused by bad code from Innersloth.</b>",
-        "\n\nWith that said, some other fixes have been done and overall the mod should be more stable once again.",
-        "\n\nPlease enjoy this update and let us know of any new issues that may appear.",
-        "\n\n★ <link=https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.7.3>TOU Mira v1.7.3 Download</link> ★ <link=https://au-avengers.github.io/docs.toum.gg/>Mod Guide & Details</link> ★",
+        "<b>Puse este texto aquí para que confirmen que están en el port modificado de TOU Mira y no en el oficial, como estoy seguro que le pasó a Jahe >:v</b>",
+        "\n\nHabiendo dicho eso, este mod es básicamente el mismo que el oficial, pero con algunas modificaciones para que funcione Submerged, Perfect Comms en español y algunas otras cosas que puse en Español xd",
+        "\n\nSi tienen errores o crasheos raros manden su LogOutput.log",
+        "\n\n★ <link=https://github.com/soyFault/TOU-Mira/releases/latest>Descarga TOU Mira v1.7.3 mod</link> ★ <link=https://discord.gg/fFfPazRK2W>Únete a nuestro servidor de Discord</link> ★",
 
-        "\n\n\r<size=105%>Crewmate Role Bugfixes:</size>",
-        "\n- Sheriff: Fixed broken punishment explanation in tab description.",
-        "\n- Altruist: Fixed broken tab description.",
-        "\n- Mirrorcaster: Magic Mirrors no longer stay permanently if the Mirrorcaster is converted.",
-
-        "\n\n\r<size=105%>Impostor Role Bugfixes:</size>",
-        "\n- Morphling: If configured, the Morph ability uses are no longer able to go less than 0.",
-
-        "\n\n\r<size=105%>Neutral Role Bugfixes:</size>",
-        "\n- Survivor: Survivor no longer takes wins away from Impostors.",
-        "\n- Plaguebearer: Adjusted checks to rule out the possibility of duplicate plague on a player.",
-        "\n- Werewolf: Werewolf's short-burst kill cooldown is no longer affected by cooldown changes.",
-        "\n- Chef: Added safeguards against the possible occurrence of missing dead bodies, breaking the win conditions.",
-
-        "\n\n\r<size=105%>Draft Mode Bugfixes:</size>",
-        "\n- Target-based roles like Fairy and Executioner have targets assigned properly again.",
-        "\n- Concurrent picks no longer removes picks from other player.",
-
-        "\n\n\r<size=105%>Other Bugfixes:</size>",
-        "\n- Fixed bad AU code causing anti-cheat to kick non-hosts if they voted for someone who died in the meeting.",
-        "\n- Fixed non-classic roles appearing in the settings menu.",
-        "\n- Fixed missing causes of death appearing due to locale system changes.",
-        "\n- Fixed Assailant Modifier Options text.",
-        "\n- Fixed kill cooldown for Impostors not being based on overall cooldown offsets.",
-
-        "\n\n\r<size=105%>Main Changes:</size>",
-        "\n- Added Ghostwalker Auto-Venting setting upon spawning under Game Mechanics.",
-        "\n- Added Judge's punishment as a setting for Prosecutor's punishment (now the default).",
-        "\n- Reshuffling in Draft Mode gives you spare time to pick if necessary."
+        "\n\n\r<size=105%>Anuncios</size>",
+        "\n- No sé qué poner aquí",
+        "\n- No me dejaba poner la noticia si no metia este texto xd",
+        "\n- Viva Bugmerged",
+        "\n- Mira mamá salí en el periódico de TOUM",
+        "\n- Sí"
       ]
     }
   ]
