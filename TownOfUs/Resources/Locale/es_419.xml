@@ -3438,4 +3438,5 @@ No pueden matarte.</string>
   <string name="TouFirstDeathShieldDescription">Tienes protección por haber muerto primero en la partida anterior.</string>
   <string name="TownOfUsMira.Modifier.Knighted">Investido</string>
   <string name="TownOfUsMira.Modifier.KnightedDescription">El Monarca te nombró caballero. Obtienes [votes] voto(s) adicional(es).</string>
+  <string name="ProsecutorProsToggling">Acusar (fiscal) requiere confirmación</string>
 </resources>
