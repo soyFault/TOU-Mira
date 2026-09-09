@@ -11,12 +11,12 @@ public sealed class EscapistOptions : AbstractRoleOptionGroup<EscapistRole>
     public override string GroupName => MiraLocaleManager.Get("TownOfUsMira.Role.Escapist", "Escapist");
     public override Color GroupColor => Palette.ImpostorRoleRed;
 
-    [ModdedNumberOption("Recall Uses Per Game", 0f, 15f, 1f, MiraNumberSuffixes.None, "0", true)]
+    [ModdedNumberOption("Usos de Regresar", 0f, 15f, 1f, MiraNumberSuffixes.None, "0", true)]
     public float MaxEscapes { get; set; } = 0f;
 
-    [ModdedNumberOption("Recall Cooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("Recarga de Regresar", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float RecallCooldown { get; set; } = 25f;
 
-    [ModdedToggleOption("Escapist Can Vent")]
+    [ModdedToggleOption("Puede usar Ductos")]
     public bool CanVent { get; set; } = true;
 }

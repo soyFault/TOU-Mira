@@ -10,17 +10,17 @@ public sealed class TraitorOptions : AbstractRoleOptionGroup<TraitorRole>
 {
     public override string GroupName => MiraLocaleManager.Get("TownOfUsMira.Role.Traitor", "Traitor");
 
-    [ModdedNumberOption("Minimum People Alive When Traitor Can Spawn", 3f, 15f, 1f, MiraNumberSuffixes.None, "0")]
+    [ModdedNumberOption("Mínimo de Vivos para Traidor", 3f, 15f, 1f, MiraNumberSuffixes.None, "0")]
     public float LatestSpawn { get; set; } = 5f;
 
-    [ModdedToggleOption("Traitor Won't Spawn If NK Is Alive")]
+    [ModdedToggleOption("No aparece si hay Neutral Asesino")]
     public bool NeutralKillingStopsTraitor { get; set; } = false;
 
-    [ModdedToggleOption("Disable Existing Impostor Roles")]
+    [ModdedToggleOption("Desactiva Roles Impostor Existentes")]
     public bool RemoveExistingRoles { get; set; } = true;
 
-    public ModdedEnumOption TraitorGuess { get; set; } = new("Traitor Must Be Guessed As", (int)CacheRoleGuess.ActiveOrCachedRole, typeof(CacheRoleGuess), ["Traitor", "New Role", "Traitor or New Role"]);
+    public ModdedEnumOption TraitorGuess { get; set; } = new(" Debe Ser Adivinado Como", (int)CacheRoleGuess.ActiveOrCachedRole, typeof(CacheRoleGuess), ["Traidor", "Nuevo Rol", "Traidor o Nuevo Rol"]);
 
     public ModdedToggleOption TraitorCanAssassin { get; } =
-        new("Traitor Becomes Assassin", true);
+        new("Puede Adivinar", true);
 }

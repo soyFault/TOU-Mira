@@ -15,7 +15,7 @@ public sealed class SentryOptions : AbstractRoleOptionGroup<SentryRole>, IWikiOp
     public float PlacementCooldown { get; set; } = 30f;
 
     [ModdedEnumOption("TouOptionSentryDeployedCamerasVisibility", typeof(SentryDeployedCamerasVisibility),
-        ["Immediately", "After Meeting"])]
+        ["De Inmediato", "Tras Reunión"])]
     public SentryDeployedCamerasVisibility DeployedCamerasVisibility { get; set; } = SentryDeployedCamerasVisibility.Immediately;
 
     public ModdedNumberOption CamerasVisibleAfter { get; } =
@@ -33,7 +33,7 @@ public sealed class SentryOptions : AbstractRoleOptionGroup<SentryRole>, IWikiOp
         };
 
     [ModdedEnumOption("TouOptionSentryPortableCamerasMode", typeof(SentryPortableCamerasMode),
-        ["Always", "After Tasks", "Only On Cam-less Maps"])]
+        ["Siempre", "Después de Tareas", "Solo en Mapas Sin Cámara"])]
     public SentryPortableCamerasMode PortableCamerasMode { get; set; } = SentryPortableCamerasMode.OnMapsWithoutCameras;
 
     public ModdedNumberOption InitialCameras { get; } = new("TouOptionSentryInitialCameras", 2f, 0f, 15f, 1f, "∞", "#", MiraNumberSuffixes.None, "0", false);

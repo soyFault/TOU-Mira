@@ -10,31 +10,31 @@ public sealed class HerbalistOptions : AbstractRoleOptionGroup<HerbalistRole>
 {
     public override string GroupName => MiraLocaleManager.Get("TownOfUsMira.Role.Herbalist", "Herbalist");
 
-    [ModdedNumberOption("Herb Cooldown", 10f, 90f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("Recarga de Hierbas", 10f, 90f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float HerbCooldown { get; set; } = 30f;
 
-    public ModdedNumberOption MaxExposeUses { get; } = new("Max Expose Uses", 3f, 0f, 15f, 1f, "∞", "∞", MiraNumberSuffixes.None, "0");
+    public ModdedNumberOption MaxExposeUses { get; } = new("Usos Máximos de Exponer", 3f, 0f, 15f, 1f, "∞", "∞", MiraNumberSuffixes.None, "0");
 
-    public ModdedNumberOption MaxConfuseUses { get; } = new("Max Confuse Uses", 5f, 0f, 15f, 1f, "∞", "∞", MiraNumberSuffixes.None, "0");
+    public ModdedNumberOption MaxConfuseUses { get; } = new("Usos Máximos de Confundir", 5f, 0f, 15f, 1f, "∞", "∞", MiraNumberSuffixes.None, "0");
 
-    public ModdedNumberOption MaxProtectUses { get; } = new("Max Protect Uses", 7f, 0f, 15f, 1f, "∞", "∞", MiraNumberSuffixes.None, "0");
+    public ModdedNumberOption MaxProtectUses { get; } = new("Usos Máximos de Proteger", 7f, 0f, 15f, 1f, "∞", "∞", MiraNumberSuffixes.None, "0");
 
-    [ModdedNumberOption("Confuse Delay", 0.5f, 5f, 0.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("Retraso de Confundir", 0.5f, 5f, 0.5f, MiraNumberSuffixes.Seconds)]
     public float ConfuseDelay{ get; set; } = 3f;
 
-    [ModdedNumberOption("Confuse Duration", 5f, 30f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("Duración de Confundir", 5f, 30f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ConfuseDuration { get; set; } = 15f;
 
     /*
     [ModdedNumberOption("Glamour Duration", 5f, 30f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float GlamourDuration { get; set; } = 15f;*/
 
-    [ModdedNumberOption("Protect Duration", 5f, 30f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("Duración de Proteger", 5f, 30f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ProtectDuration { get; set; } = 15f;
 
     [ModdedToggleOption("TouOptionClericProtectedSeesBarrier")]
     public bool ShowBarrier { get; set; } = false;
 
-    [ModdedToggleOption("Notify Herbalist Upon Attack")]
+    [ModdedToggleOption("Notificar de Ataques al Naturista")]
     public bool AttackNotif { get; set; } = true;
 }
