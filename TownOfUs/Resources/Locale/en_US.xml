@@ -3474,4 +3474,53 @@ This change is permanent.</string>
   <string name="TouHexBombCountdown">The Spellslinger is unleashing a Hex Bomb!
 [time] seconds left!</string>
   <string name="TouHexBombSpellslingerDead">The Spellslinger has perished!</string>
+<!-- Fault was here -->
+<!-- Chat strigns -->
+  <string name="TouBlackmailedChatNotice">You have been blackmailed.</string>
+  <string name="TouJailedPublicChatAllowed">You are jailed. You can use public chat.</string>
+  <string name="TouJailedPublicChatBlocked">You are jailed. You cannot use public chat.</string>
+<!-- SHHH screen patches-->
+  <string name="TouJailedShhhText">YOU ARE JAILED</string>
+  <string name="TouAndBlackmailedShhhText">AND BLACKMAILED</string>
+  <string name="TouJailedShhh">YOU ARE JAILED!</string>
+  <string name="TouBlackmailedShhh">YOU ARE BLACKMAILED!</string>
+<!-- Chat Display -->
+  <string name="TouJailChatDisplayName">Jail Chat</string>
+  <string name="TouImpostorChatDisplayName">Impostor Chat</string>
+  <string name="TouVampireChatDisplayName">Vampire Chat</string>
+  <string name="TouExtensionChatDisplayName">Extension Chat</string>
+  <string name="TouDeadTeamChatsVisible">Jailor, Impostor, and Vampire Chat can be seen here.</string>
+  <string name="TouTeamChatActive">[chat] is Active. Messages will be sent to this chat.</string>
+  <string name="TouTeamChatActiveCycle">[chat] is Active ([current]/[total]). Press button to cycle.</string>
+<!-- My spin on SeerRevealButton.cs -->
+  <string name="TouSeerEvilReveal">You have revealed that [player] is evil!</string>
+  <string name="TouSeerPossiblyEvilReveal">You have revealed that [player] is possibly evil!</string>
+  <string name="TouSeerGoodReveal">You have revealed that [player] is good!</string>
+  <string name="TouSeerLikelyGoodReveal">You have revealed that [player] is likely good!</string>
+  <string name="TouSeerProbablyGoodReveal">You have revealed that [player] is probably good!</string>
+  <string name="TouSeerPossiblyGoodReveal">You have revealed that [player] is possibly good!</string>
+  <string name="TouSeerAlignmentCrewKiller">Crew Killer</string>
+  <string name="TouSeerAlignmentNeutralBenign">Neutral Benign</string>
+  <string name="TouSeerAlignmentNeutralEvil">Neutral Evil</string>
+  <string name="TouSeerAlignmentNeutralKiller">Neutral Killer</string>
+  <string name="TouSeerAlignmentNeutralOutlier">Neutral Outlier</string>
+  <string name="TouSeerAlignmentTraitor">Traitor</string>
+  <string name="TouSeerPossibleImpostorAlignment">[alignments], or Impostor</string>
+  <string name="TouSeerImpostorAlignment">Impostor</string>
+  <string name="TouSeerPossibleCrewmateAlignment">[alignments], or Crewmate</string>
+  <string name="TouSeerCrewmateAlignment">Crewmate</string>
+  <string name="TouSeerMustBeAlignment">They must be a [alignments]!</string>
+<!-- Extra Sentry strings -->
+  <string name="TownOfUsMira.Role.SentryStandStillToDeploy">Stand still to deploy sentry-only cameras</string>
+  <string name="TownOfUsMira.Role.SentryCamerasPublicAfterMeeting">Cameras become public after the next meeting.</string>
+  <string name="TownOfUsMira.Role.SentryCameraRounds"> ([rounds] rounds)</string>
+  <string name="TownOfUsMira.Role.SentryCameraLabel">Cam [number]</string>
+<!-- Extra Miner strings -->
+  <string name="TownOfUsMira.Role.MinerVentsVisibleAfterUse">Vents will only be visible once used</string>
+<!-- Neutral Ghosts feedback -->
+<string name="NeutralGhostAlreadyWon">You have already won.</string>
+<string name="NeutralGhostDead">You are dead.</string>
+<!-- Random uncategorized strings -->
+
+
 </resources>
