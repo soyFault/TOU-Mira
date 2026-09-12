@@ -3518,9 +3518,39 @@ This change is permanent.</string>
 <!-- Extra Miner strings -->
   <string name="TownOfUsMira.Role.MinerVentsVisibleAfterUse">Vents will only be visible once used</string>
 <!-- Neutral Ghosts feedback -->
-<string name="NeutralGhostAlreadyWon">You have already won.</string>
-<string name="NeutralGhostDead">You are dead.</string>
-<!-- Random uncategorized strings -->
+  <string name="NeutralGhostAlreadyWon">You have already won.</string>
+  <string name="NeutralGhostDead">You are dead.</string>
+  <!-- Draft minigame -->
+  <string name="TouDraftRoleCardHelp">You can learn about what [role] does by clicking the role card towards the right</string>
+  <!-- Draft Sidebar -->
+  <string name="DraftNone">None</string>
+<!-- Random uncategorized strings (I gave up with the comments)-->
+  <string name="TouGameTimerTime">Time</string>
+  <string name="TouAutoRejoinCountdown">Rejoining in [seconds]</string>
+  <string name="TouRegion">Region</string>
+  <string name="TouQuickJoinPreviousLobby">Prev Lobby</string>
+  <string name="TouQuickJoinPressTab">Press Tab to</string>
+  <string name="TouQuickJoinAttemptJoining">attempt joining</string>
+  <string name="TownOfUsMira.Role.MercenaryBribeSuccess">If [player] wins, you will win as well.</string>
+  <string name="TownOfUsMira.Role.VenererAbilityUnlocked">You have unlocked the [ability] ability for getting a kill.</string>
+  <string name="TownOfUsMira.Role.VenererAbilityUnlockedWait">You have unlocked the [ability] ability for getting a kill. You must wait until your current ability is over.</string>
+  <string name="TownOfUsMira.Role.TraitorNoRolesAvailable">No roles are available for the taking.</string>
+  <string name="TownOfUsMira.Role.PuppeteerTargetInAnimation">[player] is currently in an animation (ladder/zipline/platform/vent), please wait.</string>
+  <string name="TownOfUsMira.Role.AmbusherPursueNotif">You are now pursuing [player]. Ambush anyone near them at any time you wish.</string>
+  <string name="TownOfUsMira.Modifier.DisperserNotif">Everyone has been dispersed to a vent!</string>
+  <string name="TownOfUsMira.Modifier.DoubleShotPreventedDeath">Your Double Shot has prevented you from dying this meeting!</string>
+  <string name="TownOfUsMira.Role.AmbassadorNoRolesAvailable">No roles are available for the player.</string>
+  <string name="TouHauntingDisabled">Haunting was disabled by the host!</string>
+  <string name="TouHauntingWaitNextRound">You must wait until next round to haunt!</string>
+  <string name="TouDraftRecapDisabled">No Draft recap will be displayed.</string>
+  <string name="TouDraftRecapEnabled">Draft Mode Recap will display [recap].</string>
+  <string name="TouMultiplayerFreeplayWarning">Warning: Multiplayer Freeplay is enabled. The game will not end automatically.</string>
+  <string name="TouNoGameEndWarning">Warning: No Game End is enabled. The game will not end automatically.</string>
+
+
+
+
+
 
 
 </resources>
