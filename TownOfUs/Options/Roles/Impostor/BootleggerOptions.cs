@@ -9,7 +9,6 @@ namespace TownOfUs.Options.Roles.Impostor;
 public sealed class BootleggerOptions : AbstractRoleOptionGroup<BootleggerRole>, IWikiOptionsSummaryProvider
 {
     public override string GroupName => MiraLocaleManager.Get("TownOfUsMira.Role.Bootlegger", "Bootlegger");
-    public override string GroupName => MiraLocaleManager.Get("TownOfUsMira.Role.Bootlegger", "Bootlegger");
 
     public ModdedNumberOption RoleblockCooldown { get; } =
         new("TouOptionBarkeeperRoleblockCooldown", 22.5f, 15f, 120f, 2.5f, MiraNumberSuffixes.Seconds);

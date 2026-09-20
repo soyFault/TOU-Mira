@@ -3438,5 +3438,219 @@ No pueden matarte.</string>
   <string name="TouFirstDeathShieldDescription">Tienes protección por haber muerto primero en la partida anterior.</string>
   <string name="TownOfUsMira.Modifier.Knighted">Investido</string>
   <string name="TownOfUsMira.Modifier.KnightedDescription">El Monarca te nombró caballero. Obtienes [votes] voto(s) adicional(es).</string>
-  <string name="ProsecutorProsToggling">Acusar (fiscal) requiere confirmación</string>
+  <!-- Fault was here -->
+<!-- Strings del chat -->
+<string name="TouBlackmailedChatNotice">Fuiste extorsionado.</string>
+<string name="TouJailedPublicChatAllowed">Estás encarcelado. Puedes usar el chat público.</string>
+<string name="TouJailedPublicChatBlocked">Estás encarcelado. No puedes usar el chat público.</string>
+<!-- Pantalla SHHH -->
+<string name="TouJailedShhhText">ESTÁS ENCARCELADO</string>
+<string name="TouAndBlackmailedShhhText">Y CHANTAJEADO</string>
+<string name="TouJailedShhh">¡ESTÁS ENCARCELADO!</string>
+<string name="TouBlackmailedShhh">¡ESTÁS CHANTAJEADO!</string>
+<!-- Visualización del chat -->
+<string name="TouJailChatDisplayName">Chat de Cárcel</string>
+<string name="TouImpostorChatDisplayName">Chat de Impostores</string>
+<string name="TouVampireChatDisplayName">Chat de Vampiros</string>
+<string name="TouExtensionChatDisplayName">Chat de Extensión</string>
+<string name="TouDeadTeamChatsVisible">Aquí puedes ver los chats de Cárcel, Impostores y Vampiros.</string>
+<string name="TouTeamChatActive">[chat] está activo. Los mensajes se enviarán a este chat.</string>
+<string name="TouTeamChatActiveCycle">[chat] está activo ([current]/[total]). Pulsa el botón para cambiar.</string>
+<!-- SeerRevealButton.cs -->
+<string name="TouSeerEvilReveal">¡Has revelado que [player] es malvado!</string>
+<string name="TouSeerPossiblyEvilReveal">¡Has revelado que [player] posiblemente sea malvado!</string>
+<string name="TouSeerGoodReveal">¡Has revelado que [player] es bueno!</string>
+<string name="TouSeerLikelyGoodReveal">¡Has revelado que [player] probablemente sea bueno!</string>
+<string name="TouSeerProbablyGoodReveal">¡Has revelado que [player] seguramente sea bueno!</string>
+<string name="TouSeerPossiblyGoodReveal">¡Has revelado que [player] posiblemente sea bueno!</string>
+<string name="TouSeerAlignmentCrewKiller">Tripulante Asesino</string>
+<string name="TouSeerAlignmentNeutralBenign">Neutral Benigno</string>
+<string name="TouSeerAlignmentNeutralEvil">Neutral Malvado</string>
+<string name="TouSeerAlignmentNeutralKiller">Neutral Asesino</string>
+<string name="TouSeerAlignmentNeutralOutlier">Neutral Atípico</string>
+<string name="TouSeerAlignmentTraitor">Traidor</string>
+<string name="TouSeerPossibleImpostorAlignment">[alignments] o Impostor</string>
+<string name="TouSeerImpostorAlignment">Impostor</string>
+<string name="TouSeerPossibleCrewmateAlignment">[alignments] o Tripulante</string>
+<string name="TouSeerCrewmateAlignment">Tripulante</string>
+<string name="TouSeerMustBeAlignment">¡Debe ser [alignments]!</string>
+<!-- Strings extra del Centinela -->
+<string name="TownOfUsMira.Role.SentryStandStillToDeploy">Quédate quieto para colocar cámaras exclusivas del Centinela</string>
+<string name="TownOfUsMira.Role.SentryCamerasPublicAfterMeeting">Las cámaras serán públicas tras la próxima reunión.</string>
+<string name="TownOfUsMira.Role.SentryCameraRounds"> ([rounds] rondas)</string>
+<string name="TownOfUsMira.Role.SentryCameraLabel">Cám. [number]</string>
+<!-- Strings extra del Minero -->
+<string name="TownOfUsMira.Role.MinerVentsVisibleAfterUse">Los ductos solo serán visibles después de usarlos</string>
+<!-- Fantasmas Neutrales -->
+<string name="NeutralGhostAlreadyWon">Ya ganaste.</string>
+<string name="NeutralGhostDead">Estás muerto.</string>
+<!-- Modo de Selección -->
+<string name="TouDraftRoleCardHelp">Puedes saber qué hace [role] pulsando la tarjeta de rol de la derecha</string>
+<!-- Barra lateral del Modo de Selección -->
+<string name="DraftNone">Ninguno</string>
+<string name="TouDraftDisconnectedLabel">DESCONECTADO</string>
+<string name="TouDraftKickReason">Fuiste expulsado por intentar entrar durante la selección. Inténtalo de nuevo cuando la sala esté abierta.</string>
+<string name="TownOfUsMira.Role.JailorAllowVoice">Permitir voz</string>
+<!-- Strings varias -->
+<string name="TouGameTimerTime">Tiempo</string>
+<string name="TouAutoRejoinCountdown">Reconectando en [seconds]</string>
+<string name="TouRegion">Región</string>
+<string name="TouQuickJoinPreviousLobby">Sala anterior</string>
+<string name="TouQuickJoinPressTab">Pulsa Tab para</string>
+<string name="TouQuickJoinAttemptJoining">intentar unirte</string>
+<string name="TownOfUsMira.Role.MercenaryBribeSuccess">Si [player] gana, tú también ganarás.</string>
+<string name="TownOfUsMira.Role.VenererAbilityUnlocked">Has desbloqueado la habilidad [ability] por conseguir un asesinato.</string>
+<string name="TownOfUsMira.Role.VenererAbilityUnlockedWait">Has desbloqueado la habilidad [ability] por conseguir un asesinato. Debes esperar a que termine tu habilidad actual.</string>
+<string name="TownOfUsMira.Role.TraitorNoRolesAvailable">No hay roles disponibles para tomar.</string>
+<string name="TownOfUsMira.Role.PuppeteerTargetInAnimation">[player] está en una animación (escalera/tirolesa/plataforma/ducto), espera.</string>
+<string name="TownOfUsMira.Role.AmbusherPursueNotif">Ahora persigues a [player]. Puedes emboscar a cualquiera que se acerque.</string>
+<string name="TownOfUsMira.Modifier.DisperserNotif">¡Todos han sido dispersados a un ducto!</string>
+<string name="TownOfUsMira.Modifier.DoubleShotPreventedDeath">¡Tu Doble Disparo evitó que murieras en esta reunión!</string>
+<string name="TownOfUsMira.Role.AmbassadorNoRolesAvailable">No hay roles disponibles para el jugador.</string>
+<string name="TouHauntingDisabled">¡El anfitrión desactivó el Acecho!</string>
+<string name="TouHauntingWaitNextRound">¡Debes esperar hasta la próxima ronda para acechar!</string>
+<string name="TouDraftRecapDisabled">No se mostrará el resumen de la selección.</string>
+<string name="TouDraftRecapEnabled">El resumen de la selección mostrará [recap].</string>
+<string name="TouMultiplayerFreeplayWarning">Advertencia: El modo Práctica Multijugador está activada. La partida no terminará automáticamente.</string>
+<string name="TouNoGameEndWarning">Advertencia: Sin Fin de Partida está activado. La partida no terminará automáticamente.</string>
+<string name="TownOfUsMira.Role.ProsecutorHasSpoken">El Fiscal ha hablado.</string>
+<string name="TownOfUsMira.Modifier.WardenFortifiedDescription">¡Un Guardián te ha fortificado!
+Nadie puede interactuar contigo.</string>
+<!-- Pestañas de IU -->
+<string name="TouLocalTabActions">&lt;size=70%&gt;Acciones&lt;/size&gt;</string>
+<string name="TouLocalTabButtons">IU / UX</string>
+<string name="TouLocalTabPlayers">&lt;size=75%&gt;Jugadores&lt;/size&gt;</string>
+<string name="TouLocalTabPractice">&lt;size=50%&gt;Sala / Práctica&lt;/size&gt;</string>
+<string name="TouLocalTabPreferences">&lt;size=65%&gt;Preferencias&lt;/size&gt;</string>
+<string name="TouLocalActionSelfKill">Autoasesinato</string>
+<string name="TouLocalActionAbortGame">Finalizar partida</string>
+<string name="TouLocalActionStartMeeting">Iniciar reunión</string>
+<string name="TouLocalActionEndMeeting">Finalizar reunión</string>
+<!-- Opciones de Roles -->
+<string name="TouOptionMedusaStoneDelay">Tiempo para petrificar</string>
+<string name="TouOptionMedusaStoneCompletion">Tiempo para romper piedra</string>
+<string name="TouOptionMedusaAllowStoneGazing">Permitir Mirada Pétrea</string>
+<string name="TouOptionMedusaStoneGazeCooldown">Recarga de Mirada Pétrea</string>
+<string name="TouOptionMedusaStoneGazeDuration">Duración de Mirada Pétrea</string>
+<string name="TouOptionMedusaStoneGazeUses">Usos de Mirada Pétrea</string>
+<string name="TouOptionGlitchCanVentEnumNever">Nunca</string>
+<string name="TouOptionGlitchCanVentEnumUnlessMimicking">Excepto al Imitar</string>
+<string name="TouOptionGlitchCanVentEnumAlways">Siempre</string>
+<string name="TouOptionSwooperTrackedWhileInvisible">Rastreable siendo invisible</string>
+<string name="TouOptionSwooperTrackingEnumNever">Nunca</string>
+<string name="TouOptionSwooperTrackingEnumNotByRadar">No por Radar</string>
+<string name="TouOptionSwooperTrackingEnumAlways">Siempre</string>
+<string name="TouOptionSwooperVentEnumNever">Nunca</string>
+<string name="TouOptionSwooperVentEnumWhileVisible">Mientras sea visible</string>
+<string name="TouOptionSwooperVentEnumAlways">Siempre</string>
+<string name="TouOptionJanitorCooldownSyncEnumUnlinked">Independiente</string>
+<string name="TouOptionJanitorCooldownSyncEnumWithTeammates">Con compañeros</string>
+<string name="TouOptionJanitorCooldownSyncEnumAlways">Siempre</string>
+<string name="TouOptionTraitorBecomesAssassin">Traidor se vuelve Asesino</string>
+<string name="TouOptionBootleggerPoisonTriggersOn">Veneno se activa al</string>
+<string name="TouOptionBootleggerPoisonTriggerEnumDelayEnd">Terminar retraso</string>
+<string name="TouOptionBootleggerPoisonTriggerEnumMeetingStart">Iniciar reunión</string>
+<string name="TouOptionBootleggerPoisonTriggerEnumMeetingEnd">Terminar reunión</string>
+<string name="TouOptionBootleggerPoisonDelay">Retraso del veneno</string>
+<string name="TouOptionSentryDeployedVisibilityEnumImmediately">Inmediatamente</string>
+<string name="TouOptionSentryDeployedVisibilityEnumAfterMeeting">Tras la reunión</string>
+<string name="TouOptionSentryPortableModeEnumAlways">Siempre</string>
+<string name="TouOptionSentryPortableModeEnumAfterTasks">Tras las tareas</string>
+<string name="TouOptionSentryPortableModeEnumCamlessMaps">Solo mapas sin cámaras</string>
+<string name="TouOptionTimeLordReviveEnumDisabled">Desactivado</string>
+<string name="TouOptionTimeLordReviveEnumUntilNextRound">Hasta la próxima ronda</string>
+<string name="TouOptionTimeLordReviveEnumFully">Por completo</string>
+<string name="TouOptionLookoutFeedbackReveals">Info al jugador vigilado</string>
+<string name="TouOptionGrenadierAllowFlashingDuringSabotage">Destello durante sabotajes</string>
+<string name="TouOptionHerbalistHerbCooldown">Recarga de Hierbas</string>
+<string name="TouOptionHerbalistMaxExposeUses">Usos máx. de Exponer</string>
+<string name="TouOptionHerbalistMaxConfuseUses">Usos máx. de Confundir</string>
+<string name="TouOptionHerbalistMaxProtectUses">Usos máx. de Proteger</string>
+<string name="TouOptionHerbalistConfuseDelay">Retraso de Confundir</string>
+<string name="TouOptionHerbalistConfuseDuration">Duración de Confundir</string>
+<string name="TouOptionHerbalistProtectDuration">Duración de Proteger</string>
+<string name="TouOptionHerbalistNotifyUponAttack">Avisar al ser atacado</string>
+<string name="TouOptionMonarchKnightCooldown">Recarga de Caballero</string>
+<string name="TouOptionMonarchMaximumKnights">Máx. Caballeros</string>
+<string name="TouOptionMonarchVotesPerKnight">Votos por Caballero</string>
+<string name="TouOptionMonarchKnightDelay">Retraso de Caballero (Cancelable)</string>
+<string name="TouOptionMonarchRevealKnightingAtMeeting">Revelar nombramiento</string>
+<string name="TouOptionMonarchShowKnightedVotes">Mostrar votos de Caballeros</string>
+<string name="TouOptionMonarchAllowRoundOneKnighting">Investir en ronda 1</string>
+<string name="TouOptionMonarchInformIfKnightDies">Avisar si muere un Caballero</string>
+<string name="TouOptionMonarchCrewKnightsGrantKillImmunity">Tripulantes caballeros otorgan inmunidad a morir</string>
+<!-- Integración con Perfect Comms -->
+<string name="TouPerfectCommsMuteBlackmailedInMeetings">Silenciar Extorsionados en reuniones</string>
+<string name="TouPerfectCommsMuteBlackmailedInMeetingsDescription">Impide que el jugador extorsionado transmita su voz durante las reuniones.</string>
+<string name="TouPerfectCommsMuteBlackmailedNextRound">Silenciar Extorsionado en la próxima ronda</string>
+<string name="TouPerfectCommsMuteBlackmailedNextRoundDescription">Mantiene silenciado durante la siguiente ronda de tareas al jugador extorsionado en la reunión.</string>
+<string name="TouPerfectCommsMuteControlledVictim">Silenciar víctima controlada</string>
+<string name="TouPerfectCommsMuteParasiteControlledDescription">Impide que un jugador marcado por el Parásito transmita su propia voz mientras el efecto esté activo.</string>
+<string name="TouPerfectCommsAlsoHearControlledVictim">Oír también desde la víctima</string>
+<string name="TouPerfectCommsParasiteHearFromVictimDescription">Permite al Parásito oír las voces cercanas a su víctima marcada sin abandonar su propia posición.</string>
+<string name="TouPerfectCommsMutePuppeteerControlledDescription">Impide que un jugador controlado por el Titiritero transmita su propia voz mientras esté bajo control.</string>
+<string name="TouPerfectCommsHearFromControlledVictim">Oír desde la víctima controlada</string>
+<string name="TouPerfectCommsPuppeteerHearFromVictimDescription">Permite al Titiritero oír las voces cercanas al jugador que controla.</string>
+<string name="TouPerfectCommsMuteWhileSwooped">Silenciar al Esfumarse</string>
+<string name="TouPerfectCommsMuteSwooperWhileSwoopedDescription">Impide que un Esfumador invisible transmita su voz hasta que termine el efecto.</string>
+<string name="TouPerfectCommsMuffleBlindedOrFlashedHearing">Atenuar voz al estar cegado</string>
+<string name="TouPerfectCommsMuffleBlindedOrFlashedHearingDescription">Atenúa las voces recibidas durante las tareas si el jugador está cegado por Cegador o por el destello del Granadero.</string>
+<string name="TouPerfectCommsMuffleHypnotizedDuringHysteria">Atenuar voz durante Histeria</string>
+<string name="TouPerfectCommsMuffleHypnotizedDuringHysteriaDescription">Atenúa las voces recibidas durante las tareas de los jugadores hipnotizados mientras Histeria Masiva esté activa.</string>
+<string name="TouPerfectCommsUseImpostorVoice">Usar voz de Impostor</string>
+<string name="TouPerfectCommsCrewpostorUsesImpostorVoiceDescription">Trata al Tripostor como Impostor para la voz privada de Impostores y la Radio de Equipo.</string>
+<string name="TouPerfectCommsMuteHackedPlayers">Silenciar jugadores hackeados</string>
+<string name="TouPerfectCommsMuteGlitchHackedDescription">Impide que un jugador afectado por Hackeo del Glitch transmita su voz hasta que termine el efecto.</string>
+<string name="TouPerfectCommsMuteJaileeInMeetings">Silenciar Encarcelado en reuniones</string>
+<string name="TouPerfectCommsMuteJailedInMeetingsDescription">Impide que el jugador encarcelado transmita su voz durante las reuniones, salvo que el Carcelero le permita hablar temporalmente.</string>
+<string name="TouPerfectCommsJailPersistsIfJailorDies">Cárcel persiste si muere Carcelero</string>
+<string name="TouPerfectCommsJailPersistsAfterJailorDeathDescription">Mantiene activa la cárcel de voz durante la reunión aunque el Carcelero esté muerto.</string>
+<string name="TouPerfectCommsCanUnmuteJailee">Puede dar voz al Encarcelado</string>
+<string name="TouPerfectCommsJailorCanUnmuteJailedDescription">Permite al Carcelero dejar hablar temporalmente al jugador encarcelado durante una reunión.</string>
+<string name="TouPerfectCommsTeamRadio">Radio de Equipo</string>
+<string name="TouPerfectCommsVampires">Vampiros</string>
+<string name="TouPerfectCommsTeamRadioVampiresDescription">Activa el canal privado de Radio de Equipo de los Vampiros cuando la Radio de Equipo está habilitada.</string>
+<string name="TouPerfectCommsTeamRadioLoversDescription">Activa el canal privado de Radio de Equipo de los Enamorados cuando la Radio de Equipo está habilitada.</string>
+<string name="TouPerfectCommsGhostVoice">Voz de Fantasmas</string>
+<string name="TouPerfectCommsMediumVoiceNone">Ninguna</string>
+<string name="TouPerfectCommsMediumVoiceMediumToGhost">Médium -&gt; Fantasma</string>
+<string name="TouPerfectCommsMediumVoiceGhostToMedium">Fantasma -&gt; Médium</string>
+<string name="TouPerfectCommsMediumVoiceBoth">Ambas</string>
+<string name="TouPerfectCommsMediumGhostVoiceDescription">Elige qué dirección de voz se permite entre el Médium y los jugadores muertos durante las tareas.</string>
+<!-- Grupos de opciones de roles -->
+<string name="TouRoleGroupCrewHider">Escondedores (Escondite)</string>
+<string name="TouRoleGroupImpSeeker">Buscadores (Escondite)</string>
+<string name="TouRoleGroupCrewBeliever">Tripulantes Creyentes (Cultista)</string>
+<string name="TouRoleGroupCrewObstinate">Tripulantes Obstinados (Cultista)</string>
+<string name="TouRoleGroupNeutralObstinate">Neutrales Obstinados (Cultista)</string>
+<string name="TouRoleGroupImpCultist">Impostores Cultistas (Cultista)</string>
+<string name="TouRoleGroupImpFollower">Impostores Seguidores (Cultista)</string>
+<string name="TouRoleGroupFrenzyKiller">Roles de Frenesí Asesino</string>
+<string name="TouRoleGroupCrewInvestigative">Roles Tripulantes Investigadores</string>
+<string name="TouRoleGroupCrewKilling">Roles Tripulantes Asesinos</string>
+<string name="TouRoleGroupCrewProtective">Roles Tripulantes Protectores</string>
+<string name="TouRoleGroupCrewPower">Roles Tripulantes Superiores</string>
+<string name="TouRoleGroupCrewSupport">Roles Tripulantes de Apoyo</string>
+<string name="TouRoleGroupCrewGhost">Roles Fantasmas Tripulantes</string>
+<string name="TouRoleGroupCrewAfterlife">Roles Tripulantes Fantasma</string>
+<string name="TouRoleGroupNeutralBenign">Roles Neutrales Benignos</string>
+<string name="TouRoleGroupNeutralEvil">Roles Neutrales Malvados</string>
+<string name="TouRoleGroupNeutralOutlier">Roles Neutrales Atípicos</string>
+<string name="TouRoleGroupNeutralKilling">Roles Neutrales Asesinos</string>
+<string name="TouRoleGroupNeutralGhost">Roles Fantasmas Neutrales</string>
+<string name="TouRoleGroupNeutralAfterlife">Roles Neutrales Fantasma</string>
+<string name="TouRoleGroupImpConcealing">Roles Impostores Ocultativos</string>
+<string name="TouRoleGroupImpKilling">Roles Impostores Asesinos</string>
+<string name="TouRoleGroupImpPower">Roles Impostores Superiores</string>
+<string name="TouRoleGroupImpSupport">Roles Impostores de Apoyo</string>
+<string name="TouRoleGroupImpGhost">Roles Fantasmas Impostores</string>
+<string name="TouRoleGroupImpAfterlife">Roles Impostores Fantasma</string>
+<string name="TouRoleGroupOther">Otros Roles</string>
+<string name="TouRoleGroupCrewmate">Roles Tripulantes</string>
+<string name="TouRoleGroupNeutral">Roles Neutrales</string>
+<string name="TouRoleGroupImpostor">Roles Impostores</string>
+<string name="TouOptionPlayerCountWhenSabotagesDisable">Jugadores Vivos para desactivar sabotajes</string>
+<string name="TouOptionCanSabotageWhenDead">Puede sabotear si murió</string>
+<string name="TouOptionGhostwalkerVentSpawn">Auto-Ducto para caminantes fantasma al aparecer</string>
+
 </resources>
