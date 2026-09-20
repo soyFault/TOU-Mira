@@ -102,7 +102,7 @@ public static class HudManagerPatches
         AdjustCameraSize(!Zooming ? 12f : 3f);
     }
 
-    public static void ScrollZoom(bool zoomOut = false)
+    public static void ScrollZoom(bool zoomOut = false, float mult = 1.25f)
     {
         if (MeetingHud.Instance || ExileController.Instance)
         {
@@ -111,7 +111,7 @@ public static class HudManagerPatches
         }
 
         var size = Camera.main!.orthographicSize;
-        size = zoomOut ? size * 1.25f : size / 1.25f;
+        size = zoomOut ? size * mult : size / mult;
         size = Mathf.Clamp(size, 3, 15);
         if (Camera.main!.orthographicSize == size)
         {
@@ -132,11 +132,11 @@ public static class HudManagerPatches
         var scrollWheel = Input.GetAxis("Mouse ScrollWheel");
         var axisRaw = ConsoleJoystick.player.GetAxisRaw(55);
 
-        if (scrollWheel == 0 && Input.touchCount < 2 && axisRaw == 0)
+        if (scrollWheel == 0 && Input.touchCount < 3 && axisRaw == 0)
         {
             return;
         }
-        if (Input.touchCount == 2)
+        if (Input.touchCount == 3)
         {
             Touch touch0 = Input.GetTouch(0);
             Touch touch1 = Input.GetTouch(1);
@@ -152,12 +152,12 @@ public static class HudManagerPatches
             {
                 case > 0:
                 {
-                    ScrollZoom();
+                    ScrollZoom(false, 1.05f);
                     break;
                 }
                 case < 0:
                 {
-                    ScrollZoom(true);
+                    ScrollZoom(true, 1.05f);
                     break;
                 }
             }
@@ -435,45 +435,65 @@ public static class HudManagerPatches
                         }
                         else
                         {
-                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"┣ {Palette.CrewmateBlue.ToTextColor()}Crew</color> Investigative: {draftCrewOpts.MaxCrewInvestigative.Value} Max");
-                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"┣ {Palette.CrewmateBlue.ToTextColor()}Crew</color> Killing: {draftCrewOpts.MaxCrewKilling.Value} Max");
-                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"┣ {Palette.CrewmateBlue.ToTextColor()}Crew</color> Power: {draftCrewOpts.MaxCrewPower.Value} Max");
-                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"┣ {Palette.CrewmateBlue.ToTextColor()}Crew</color> Protective: {draftCrewOpts.MaxCrewProtective.Value} Max");
-                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"┗ {Palette.CrewmateBlue.ToTextColor()}Crew</color> Support: {draftCrewOpts.MaxCrewSupport.Value} Max");
+                            var crewInvestigative = MiraLocaleManager.Get("CrewInvestigative.Colored");
+                            var crewKilling = MiraLocaleManager.Get("CrewKilling.Colored");
+                            var crewPower = MiraLocaleManager.Get("CrewPower.Colored");
+                            var crewProtective = MiraLocaleManager.Get("CrewProtective.Colored");
+                            var crewSupport = MiraLocaleManager.Get("CrewSupport.Colored");
+
+                            var impConcealing = MiraLocaleManager.Get("ImpConcealing.Colored");
+                            var impKilling = MiraLocaleManager.Get("ImpKilling.Colored");
+                            var impPower = MiraLocaleManager.Get("ImpPower.Colored");
+                            var impSupport = MiraLocaleManager.Get("ImpSupport.Colored");
+
+                            var neutralBenign = MiraLocaleManager.Get("NeutralBenign.Colored");
+                            var neutralEvil = MiraLocaleManager.Get("NeutralEvil.Colored");
+                            var neutralKilling = MiraLocaleManager.Get("NeutralKilling.Colored");
+                            var neutralOutlier = MiraLocaleManager.Get("NeutralOutlier.Colored");
+
+                            var impostors = MiraLocaleManager.Get("TouOptionAltruistKillerEnumImpostors");
+                            var neutrals = MiraLocaleManager.Get("TouOptionAltruistKillerEnumNeutrals");
+                            var none = MiraLocaleManager.Get("DraftNone");
 
                             rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"{TownOfUsColors.ImpSoft.ToTextColor()}Impostors</color>: {draftImpOpts.MaxImpostors.Value} Max");
+                                $"┣ {crewInvestigative}: {draftCrewOpts.MaxCrewInvestigative.Value} {StoredMaximum}");
                             rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"┣ {TownOfUsColors.ImpSoft.ToTextColor()}Imp</color> Concealing: {draftImpOpts.MaxImpConcealing.Value} Max");
+                                $"┣ {crewKilling}: {draftCrewOpts.MaxCrewKilling.Value} {StoredMaximum}");
                             rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"┣ {TownOfUsColors.ImpSoft.ToTextColor()}Imp</color> Killing: {draftImpOpts.MaxImpKilling.Value} Max");
+                                $"┣ {crewPower}: {draftCrewOpts.MaxCrewPower.Value} {StoredMaximum}");
                             rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"┣ {TownOfUsColors.ImpSoft.ToTextColor()}Imp</color> Power: {draftImpOpts.MaxImpPower.Value} Max");
+                                $"┣ {crewProtective}: {draftCrewOpts.MaxCrewProtective.Value} {StoredMaximum}");
                             rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                $"┗ {TownOfUsColors.ImpSoft.ToTextColor()}Imp</color> Support: {draftImpOpts.MaxImpSupport.Value} Max");
+                                $"┗ {crewSupport}: {draftCrewOpts.MaxCrewSupport.Value} {StoredMaximum}");
+
+                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
+                                $"{TownOfUsColors.ImpSoft.ToTextColor()}{impostors}</color>: {draftImpOpts.MaxImpostors.Value} {StoredMaximum}");
+                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
+                                $"┣ {impConcealing}: {draftImpOpts.MaxImpConcealing.Value} {StoredMaximum}");
+                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
+                                $"┣ {impKilling}: {draftImpOpts.MaxImpKilling.Value} {StoredMaximum}");
+                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
+                                $"┣ {impPower}: {draftImpOpts.MaxImpPower.Value} {StoredMaximum}");
+                            rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
+                                $"┗ {impSupport}: {draftImpOpts.MaxImpSupport.Value} {StoredMaximum}");
 
                             if (draftNeutOpts.MaxNeutrals.Value > 0)
                             {
                                 rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                    $"{TownOfUsColors.Neutral.ToTextColor()}Neutrals</color>: {draftNeutOpts.MaxNeutrals.Value} Max");
+                                    $"{TownOfUsColors.Neutral.ToTextColor()}{neutrals}</color>: {draftNeutOpts.MaxNeutrals.Value} {StoredMaximum}");
                                 rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                    $"┣ {TownOfUsColors.Neutral.ToTextColor()}Neutral</color> Benign: {draftNeutOpts.MaxNeutBenign.Value} Max");
+                                    $"┣ {neutralBenign}: {draftNeutOpts.MaxNeutBenign.Value} {StoredMaximum}");
                                 rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                    $"┣ {TownOfUsColors.Neutral.ToTextColor()}Neutral</color> Evil: {draftNeutOpts.MaxNeutEvil.Value} Max");
+                                    $"┣ {neutralEvil}: {draftNeutOpts.MaxNeutEvil.Value} {StoredMaximum}");
                                 rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                    $"┣ {TownOfUsColors.Neutral.ToTextColor()}Neutral</color> Killing: {draftNeutOpts.MaxNeutKilling.Value} Max");
+                                    $"┣ {neutralKilling}: {draftNeutOpts.MaxNeutKilling.Value} {StoredMaximum}");
                                 rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                    $"┗ {TownOfUsColors.Neutral.ToTextColor()}Neutral</color> Outlier: {draftNeutOpts.MaxNeutOutlier.Value} Max");
+                                    $"┗ {neutralOutlier}: {draftNeutOpts.MaxNeutOutlier.Value} {StoredMaximum}");
                             }
                             else
                             {
                                 rolelistBuilder.AppendLine(TownOfUsPlugin.Culture,
-                                    $"{TownOfUsColors.Neutral.ToTextColor()}Neutrals</color>: None");
+                                    $"{TownOfUsColors.Neutral.ToTextColor()}{neutrals}</color>: {none}");
                             }
                         }
                     }
@@ -517,7 +537,7 @@ public static class HudManagerPatches
         }
     }
 
-    public static void UpdateSubmergedButtons(HudManager instance)
+    public static void UpdateSubmergedButtons(HudManager instance, IGhostRole ghost)
     {
         if (ModCompatibility.IsSubmerged())
         {
@@ -531,12 +551,9 @@ public static class HudManagerPatches
                 MiraApiSettings.SetUpButtonPositions();
                 HasAdjustedSubButton = true;
             }
-            if (MiraHudHelper.SubmergedFloorButton && PlayerControl.LocalPlayer.Data.Role is IGhostRole ghost)
+            if (MiraHudHelper.SubmergedFloorButton)
             {
-                MiraHudHelper.SubmergedFloorButton.SetActive(PlayerControl.LocalPlayer.Data != null &&
-                                                             PlayerControl.LocalPlayer.Data.IsDead &&
-                                                             !ghost.GhostActive
-                );
+                MiraHudHelper.SubmergedFloorButton.SetActive(!ghost.GhostActive);
             }
         }
     }
@@ -594,17 +611,21 @@ public static class HudManagerPatches
         ((PlayerControl.LocalPlayer.DiedOtherRound() &&
           (PlayerControl.LocalPlayer.Data.Role is IGhostRole { Caught: true } ||
            PlayerControl.LocalPlayer.Data.Role is not IGhostRole)) ||
-         (TutorialManager.InstanceExists && LocalSettingsTabSingleton<TouLocalTabPractice>.Instance.ZoomingInPractice.Value) ||
-         (GameStartManager.InstanceExists && LocalSettingsTabSingleton<TouLocalTabPractice>.Instance.ZoomingInLobby.Value)) && !(HudManager.Instance.GameMenu.IsOpen ||
-                                                 HudManager.Instance.Chat.IsOpenOrOpening ||
-                                                 MeetingHud.Instance || Minigame.Instance ||
-                                                 PlayerCustomizationMenu.Instance ||
-                                                 FriendsListUI.Instance && FriendsListUI.Instance.IsOpen ||
-                                                 MatchInfoGuide.Instance && MatchInfoGuide.Instance.IsActive ||
-                                                 GameStartManager.InstanceExists &&
-                                                 (GameStartManager.Instance.RulesViewPanel &&
-                                                  GameStartManager.Instance.RulesViewPanel.active ||
-                                                  GameSettingMenu.Instance));
+         (TutorialManager.InstanceExists &&
+          LocalSettingsTabSingleton<TouLocalTabPractice>.Instance.ZoomingInPractice.Value) ||
+         (GameStartManager.InstanceExists &&
+          LocalSettingsTabSingleton<TouLocalTabPractice>.Instance.ZoomingInLobby.Value)) &&
+        !(HudManager.Instance.GameMenu.IsOpen ||
+          DraftManager.IsDraftActive ||
+          HudManager.Instance.Chat.IsOpenOrOpening ||
+          MeetingHud.Instance || Minigame.Instance ||
+          PlayerCustomizationMenu.Instance ||
+          FriendsListUI.Instance && FriendsListUI.Instance.IsOpen ||
+          MatchInfoGuide.Instance && MatchInfoGuide.Instance.IsActive ||
+          GameStartManager.InstanceExists &&
+          (GameStartManager.Instance.RulesViewPanel &&
+           GameStartManager.Instance.RulesViewPanel.active ||
+           GameSettingMenu.Instance));
 
     private static bool _registeredSoftModifiers;
     public static string StoredTasksText { get; private set; } = "Tasks";

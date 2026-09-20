@@ -10,20 +10,20 @@ public sealed class MorphlingOptions : AbstractRoleOptionGroup<MorphlingRole>
 {
     public override string GroupName => MiraLocaleManager.Get("TownOfUsMira.Role.Morphling", "Morphling");
 
-    [ModdedNumberOption("Muestras Máximas", 0f, 15f, 5f, MiraNumberSuffixes.None, "0", true)]
+    [ModdedNumberOption("TouOptionMorphlingSamplesPerGame", 0f, 15f, 5f, MiraNumberSuffixes.None, "0", true)]
     public float MaxSamples { get; set; } = 0f;
 
-    [ModdedNumberOption("Usos de Metamorfosis Por Ronda", 0f, 10f, 1f, MiraNumberSuffixes.None, "0", true)]
+    [ModdedNumberOption("TouOptionMorphlingMorphUsesPerRound", 0f, 10f, 1f, MiraNumberSuffixes.None, "0", true)]
     public float MaxMorphs { get; set; } = 0f;
 
-    [ModdedNumberOption("Recarga de Metamorfosis", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouOptionMorphlingMorphCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float MorphlingCooldown { get; set; } = 25f;
 
-    [ModdedNumberOption("Duración de Metamorfosis", 5f, 45f, 1f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouOptionMorphlingMorphDuration", 5f, 45f, 1f, MiraNumberSuffixes.Seconds)]
     public float MorphlingDuration { get; set; } = 10f;
 
-    public ModdedEnumOption CanVent { get; set; } = new("Puede usar Ductos", (int)MorphlingVent.Always, typeof(MorphlingVent),
-        ["Nunca", "Transformado no", "Siempre"]);
+    public ModdedEnumOption CanVent { get; set; } = new("TouOptionMorphlingCanVent", (int)MorphlingVent.Always, typeof(MorphlingVent),
+        ["TouOptionMorphlingCanVentEnumNever", "TouOptionMorphlingCanVentEnumUnlessMorphed", "TouOptionMorphlingCanVentEnumAlways"]);
 }
 
 public enum MorphlingVent

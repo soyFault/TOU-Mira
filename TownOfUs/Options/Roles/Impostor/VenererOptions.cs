@@ -9,18 +9,18 @@ public sealed class VenererOptions : AbstractRoleOptionGroup<VenererRole>
 {
     public override string GroupName => MiraLocaleManager.Get("TownOfUsMira.Role.Venerer", "Venerer");
 
-    [ModdedNumberOption("Recarga de Habilidad", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouOptionVenererAbilityCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float AbilityCooldown { get; set; } = 25f;
 
-    [ModdedNumberOption("Duración de Habilidad", 5f, 15f, suffixType: MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouOptionVenererAbilityDuration", 5f, 15f, suffixType: MiraNumberSuffixes.Seconds)]
     public float AbilityDuration { get; set; } = 10f;
 
-    [ModdedNumberOption("Velocidad de Esprintar", 1.05f, 2.5f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")]
+    [ModdedNumberOption("TouOptionVenererSprintSpeed", 1.05f, 2.5f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")]
     public float NumSprintSpeed { get; set; } = 1.25f;
 
-    [ModdedNumberOption("Velocidad Mínima de Ralentizar", 0.05f, 0.75f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")]
+    [ModdedNumberOption("TouOptionVenererMinimumFreezeSpeed", 0.05f, 0.75f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")]
     public float MinFreezeSpeed { get; set; } = 0.25f;
 
-    [ModdedNumberOption("Radio de Ralentizar", 0.25f, 5f, 0.25f, MiraNumberSuffixes.Multiplier, "0.00")]
+    [ModdedNumberOption("TouOptionVenererFreezeRadius", 0.25f, 5f, 0.25f, MiraNumberSuffixes.Multiplier, "0.00")]
     public float FreezeRadius { get; set; } = 1f;
 }

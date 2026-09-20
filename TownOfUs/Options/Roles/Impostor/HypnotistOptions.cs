@@ -9,9 +9,9 @@ public sealed class HypnotistOptions : AbstractRoleOptionGroup<HypnotistRole>
 {
     public override string GroupName => MiraLocaleManager.Get("TownOfUsMira.Role.Hypnotist", "Hypnotist");
 
-    [ModdedNumberOption("Recarga de Hipnotizar", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouOptionHypnotistHypnotizeCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float HypnotiseCooldown { get; set; } = 25f;
 
-    [ModdedToggleOption("Puede Matar")]
+    [ModdedToggleOption("TouOptionHypnotistHypnotistCanKillWithTeammate")]
     public bool HypnoKill { get; set; } = true;
 }

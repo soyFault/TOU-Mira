@@ -201,7 +201,6 @@ public sealed class HudManagerHelper(nint cppPtr) : MonoBehaviour(cppPtr)
         {
             return;
         }
-        HudManagerPatches.UpdateSubmergedButtons(instance);
         
         if (!PlayerControl.LocalPlayer.Data.Role ||
             !ShipStatus.Instance ||
@@ -255,7 +254,7 @@ public sealed class HudManagerHelper(nint cppPtr) : MonoBehaviour(cppPtr)
         TimeLordPatches.RecordTimeLordSnapshot(instance);
         if (PlayerControl.LocalPlayer.Data.IsDead && ghostRole != null)
         {
-            SubmergedHudPatch.UpdateFloorButton(instance, ghostRole);
+            HudManagerPatches.UpdateSubmergedButtons(instance, ghostRole);
         }
     }
     #pragma warning restore CA1822
@@ -352,7 +351,7 @@ public sealed class HudManagerHelper(nint cppPtr) : MonoBehaviour(cppPtr)
         {
             foreach (var playerVA in MeetingHud.Instance.playerStates)
             {
-                if (!playerVA.gameObject.active)
+                if (!playerVA.gameObject || !playerVA.gameObject.active)
                 {
                     continue;
                 }

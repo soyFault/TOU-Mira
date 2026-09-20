@@ -26,6 +26,7 @@ using TownOfUs.Interfaces;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules;
+using TownOfUs.Modules.DraftMode;
 using TownOfUs.Options;
 using TownOfUs.Options.Maps;
 using TownOfUs.Options.Modifiers.Alliance;
@@ -334,7 +335,7 @@ public static class MiscUtils
         {
             return touRole.RoleAlignment;
         }
-        else if (role is ICustomRole customRole)
+        if (role is ICustomRole customRole)
         {
             var alignments = Enum.GetValues<RoleAlignment>();
             foreach (var alignment in alignments)
@@ -347,6 +348,10 @@ public static class MiscUtils
                     return roleAlignment;
                 }
             }
+        }
+        if (role == null)
+        {
+            return RoleAlignment.GameOutlier;
         }
 
         if (role.IsDead)
@@ -982,11 +987,95 @@ public static class MiscUtils
             chat.notificationRoutine = chat.StartCoroutine(chat.BounceDot());
         }
 
-        if (showHeadsup && !chat.IsOpenOrOpening)
+        if (showHeadsup && !chat.IsOpenOrOpening && !DraftManager.IsDraftActive)
+        {
+            SoundManager.Instance.PlaySound(chat.messageSound, false).pitch =
+                0.5f + basePlayer.Object.PlayerId / 15f;
+            chat.chatNotification.SetUpNotif(basePlayer.Object, message);
+        }
+    }
+
+    public static void AddSimpleSystemChat(string nameText, string message,
+        bool showHeadsup = false, bool altColors = false)
+    {
+        var chat = HudManager.Instance.Chat;
+
+        var pooledBubble = chat.GetPooledBubble();
+        var clonedBubble = chat.GetPooledBubble();
+        clonedBubble.gameObject.name = TeamChatPatches.PublicBubbleName;
+
+        pooledBubble.transform.SetParent(TeamChatPatches.PublicChatItems);
+        clonedBubble.transform.SetParent(TeamChatPatches.MergedChatItems);
+        pooledBubble.transform.localScale = Vector3.one;
+        clonedBubble.transform.localScale = Vector3.one;
+        pooledBubble.SetLeft();
+        clonedBubble.SetLeft();
+
+        pooledBubble.NameText.text = nameText;
+        pooledBubble.NameText.color = Color.white;
+        pooledBubble.NameText.ForceMeshUpdate(true, true);
+        pooledBubble.votedMark.enabled = false;
+        pooledBubble.Xmark.enabled = false;
+        pooledBubble.TextArea.text = message;
+        pooledBubble.TextArea.text = WikiHyperLinkPatches.CheckForTags(message, pooledBubble.TextArea);
+        pooledBubble.TextArea.ForceMeshUpdate(true, true);
+        pooledBubble.Background.size = new Vector2(5.52f,
+            0.2f + pooledBubble.NameText.GetNotDumbRenderedHeight() + pooledBubble.TextArea.GetNotDumbRenderedHeight());
+        pooledBubble.MaskArea.size = pooledBubble.Background.size - new Vector2(0, 0.03f);
+
+        pooledBubble.NameText.transform.localPosition = new Vector3(-0.2f, 0.358f, 0);
+        pooledBubble.Background.transform.localPosition = new Vector3(2.735f, -1.5801f, 0);
+        pooledBubble.Background.transform.localScale = new Vector3(1.115f, 1, 1);
+        pooledBubble.MaskArea.transform.localPosition = new Vector3(2.725f, -1.5601f, 0.1f);
+        pooledBubble.MaskArea.transform.localScale = new Vector3(1.12f, 1, 1);
+        pooledBubble.NameText.rectTransform.sizeDelta = new Vector2(6, pooledBubble.NameText.rectTransform.sizeDelta.y);
+        pooledBubble.Player.transform.localScale = new Vector3(0, 0, 0);
+        pooledBubble.ColorBlindName.transform.localScale = new Vector3(0, 0, 0);
+
+        clonedBubble.NameText.text = nameText;
+        clonedBubble.NameText.color = Color.white;
+        clonedBubble.NameText.ForceMeshUpdate(true, true);
+        clonedBubble.votedMark.enabled = false;
+        clonedBubble.Xmark.enabled = false;
+        clonedBubble.TextArea.text = message;
+        clonedBubble.TextArea.text = WikiHyperLinkPatches.CheckForTags(message, clonedBubble.TextArea);
+        clonedBubble.TextArea.ForceMeshUpdate(true, true);
+        clonedBubble.Background.size = new Vector2(5.52f,
+            0.2f + clonedBubble.NameText.GetNotDumbRenderedHeight() + clonedBubble.TextArea.GetNotDumbRenderedHeight());
+        clonedBubble.MaskArea.size = clonedBubble.Background.size - new Vector2(0, 0.03f);
+
+        clonedBubble.NameText.transform.localPosition = new Vector3(-0.2f, 0.358f, 0);
+        clonedBubble.Background.transform.localPosition = new Vector3(2.735f, -1.5801f, 0);
+        clonedBubble.Background.transform.localScale = new Vector3(1.115f, 1, 1);
+        clonedBubble.MaskArea.transform.localPosition = new Vector3(2.725f, -1.5601f, 0.1f);
+        clonedBubble.MaskArea.transform.localScale = new Vector3(1.12f, 1, 1);
+        clonedBubble.NameText.rectTransform.sizeDelta = new Vector2(6, clonedBubble.NameText.rectTransform.sizeDelta.y);
+        clonedBubble.Player.transform.localScale = new Vector3(0, 0, 0);
+        clonedBubble.ColorBlindName.transform.localScale = new Vector3(0, 0, 0);
+
+        if (altColors)
+        {
+            pooledBubble.Background.color = Color.black;
+            pooledBubble.TextArea.color = Color.white;
+            clonedBubble.Background.color = Color.black;
+            clonedBubble.TextArea.color = Color.white;
+        }
+
+        pooledBubble.AlignChildren();
+        clonedBubble.AlignChildren();
+        TeamChatPatches.PublicChatBubbles.Add(pooledBubble);
+        TeamChatPatches.MergedChatBubbles.Add(new TeamChatPatches.MergedBubble(clonedBubble, true));
+        TeamChatPatches.AlignAllChatBubbles(chat, ChatToCheck.Public);
+        if (chat is { IsOpenOrOpening: false, notificationRoutine: null })
+        {
+            chat.notificationRoutine = chat.StartCoroutine(chat.BounceDot());
+        }
+
+        if (showHeadsup && !chat.IsOpenOrOpening && !DraftManager.IsDraftActive)
         {
             SoundManager.Instance.PlaySound(chat.messageSound, false).pitch =
                 0.5f + PlayerControl.LocalPlayer.PlayerId / 15f;
-            chat.chatNotification.SetUp(PlayerControl.LocalPlayer, message);
+            chat.chatNotification.SetUpNotif(PlayerControl.LocalPlayer, message);
         }
     }
 
@@ -1058,11 +1147,11 @@ public static class MiscUtils
             chat.notificationRoutine = chat.StartCoroutine(chat.BounceDot());
         }
 
-        if (showHeadsup && !chat.IsOpenOrOpening)
+        if (showHeadsup && !chat.IsOpenOrOpening && !DraftManager.IsDraftActive)
         {
             SoundManager.Instance.PlaySound(chat.messageSound, false).pitch =
                 0.5f + PlayerControl.LocalPlayer.PlayerId / 15f;
-            chat.chatNotification.SetUp(PlayerControl.LocalPlayer, message);
+            chat.chatNotification.SetUpNotif(PlayerControl.LocalPlayer, message);
         }
     }
 
@@ -1184,9 +1273,9 @@ public static class MiscUtils
             SoundManager.Instance.PlaySound(chat.messageSound, false).pitch = 0.1f;
         }
 
-        if (showHeadsup && !chat.IsOpenOrOpening)
+        if (showHeadsup && !chat.IsOpenOrOpening && !DraftManager.IsDraftActive)
         {
-            chat.chatNotification.SetUp(PlayerControl.LocalPlayer, message);
+            chat.chatNotification.SetUpNotif(basePlayer.Object, message, inverted: blackoutText);
         }
     }
 
@@ -1649,12 +1738,18 @@ public static class MiscUtils
             var z = 1f + (Effects.ElasticOut(t, duration) - 1f) * intensity;
             z *= finalSize;
             localScale.x = localScale.y = localScale.z = z;
-            target.localScale = localScale;
+            if (target)
+            {
+                target.localScale = localScale;
+            }
             yield return null;
         }
 
         localScale.z = localScale.y = localScale.x = finalSize;
-        target.localScale = localScale;
+        if (target)
+        {
+            target.localScale = localScale;
+        }
     }
 
     public static void AdjustGhostTasks(PlayerControl player)
@@ -2512,6 +2607,25 @@ public static class MiscUtils
             return custom.Configuration.IconTmp ? $"<sprite name=\"{custom.Configuration.IconTmp.name}\">" : $"<sprite name=\"AmongUs.Role.{custom.Team}\">";
         }
         return $"<sprite name=\"AmongUs.Role.{role.Role}\">";
+    }
+
+    public static string GetMaskedRoleTmpIcon(RoleTypes role)
+    {
+        return GetRoleTmpIcon(RoleManager.Instance.GetRole(role));
+    }
+
+    public static string GetMaskedRoleTmpIcon(ICustomRole role)
+    {
+        return role.Configuration.IconTmp ? $"<sprite name=\"{role.Configuration.IconTmp.name}.Masked\">" : $"<sprite name=\"AmongUs.Role.{role.Team}.Masked\">";
+    }
+
+    public static string GetMaskedRoleTmpIcon(RoleBehaviour role)
+    {
+        if (role is ICustomRole custom)
+        {
+            return custom.Configuration.IconTmp ? $"<sprite name=\"{custom.Configuration.IconTmp.name}.Masked\">" : $"<sprite name=\"AmongUs.Role.{custom.Team}.Masked\">";
+        }
+        return $"<sprite name=\"AmongUs.Role.{role.Role}.Masked\">";
     }
 
     public static string GetToggledRoleTmpIcon(RoleBehaviour role, bool enabled)

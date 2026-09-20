@@ -12,10 +12,10 @@ public sealed class ExecutionerOptions : AbstractRoleOptionGroup<ExecutionerRole
     [ModdedEnumOption("TouOptionExecutionerBecomesTargetDeath", typeof(BecomeOptions), ["MiraApi.RoleTeam.Crewmate", "TownOfUsMira.Role.Amnesiac", "TownOfUsMira.Role.Survivor", "TownOfUsMira.Role.Mercenary", "TownOfUsMira.Role.Jester"])]
     public BecomeOptions OnTargetDeath { get; set; } = BecomeOptions.Jester;
 
-    [ModdedToggleOption("Puede usar botón")]
+    [ModdedToggleOption("TouOptionExecutionerCanButton")]
     public bool CanButton { get; set; } = true;
 
-    [ModdedEnumOption("Si gana", typeof(ExeWinOptions), ["Termina Partida", "Tortura", "Nada"])]
+    [ModdedEnumOption("TouOptionExecutionerWin", typeof(ExeWinOptions), ["TouOptionExecutionerWinEnumEndsGame", "TouOptionExecutionerWinEnumTorments", "TouOptionExecutionerWinEnumNothing"])]
     public ExeWinOptions ExeWin { get; set; } = ExeWinOptions.Torments;
 
     public ModdedToggleOption ExeAnonymizeWin { get; set; } =

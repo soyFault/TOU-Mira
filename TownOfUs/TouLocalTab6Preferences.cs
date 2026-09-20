@@ -7,7 +7,7 @@ namespace TownOfUs;
 
 public class TouLocalTabPreferences(ConfigFile config) : LocalSettingsTab(config)
 {
-    public override string TabName => "<size=65%>Preferencias</size>";
+    public override string TabName => $"<size=65%>{MiraLocaleManager.Get("TouLocalTabPreferences", "Preferences")}</size>";
     protected override bool ShouldCreateLabels => true;
 
     public override void OnOptionChanged(ConfigEntryBase configEntry)
@@ -50,7 +50,11 @@ public class TouLocalTabPreferences(ConfigFile config) : LocalSettingsTab(config
         config.Bind("Gameplay", "SeparateChatBubbles", false);
 
     [LocalToggleSetting]
-    public ConfigEntry<bool> DeadSeeGhostsToggle { get; private set; } = config.Bind("Misceláneos", "DeadSeeGhosts", true);
+    public ConfigEntry<bool> ShowChatNotifsInGame { get; private set; } =
+        config.Bind("Gameplay", "ShowChatNotifsInGame", true);
+
+    [LocalToggleSetting]
+    public ConfigEntry<bool> DeadSeeGhostsToggle { get; private set; } = config.Bind("Miscellaneous", "DeadSeeGhosts", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ShowVentsToggle { get; private set; } = config.Bind("Misceláneos", "ShowVents", true);
