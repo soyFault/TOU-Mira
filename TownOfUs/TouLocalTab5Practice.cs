@@ -18,19 +18,19 @@ public class TouLocalTabPractice(ConfigFile config) : LocalSettingsTab(config)
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ShowWelcomeMessageToggle { get; private set; } =
-        config.Bind("Lobby", "ShowWelcomeMessage", true);
+        config.Bind("Sala", "ShowWelcomeMessage", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ShowRulesOnLobbyJoinToggle { get; private set; } =
-        config.Bind("Lobby", "ShowRulesOnLobbyJoin", true);
+        config.Bind("Sala", "ShowRulesOnLobbyJoin", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ShowSummaryMessageToggle { get; private set; } =
-        config.Bind("Lobby", "ShowSummaryMessage", true);
+        config.Bind("Sala", "ShowSummaryMessage", true);
 
     [LocalEnumSetting(names: ["SummarySimple", "SummaryNormal", "SummaryAdvanced"])]
     public ConfigEntry<GameSummaryAppearance> SummaryMessageAppearance { get; private set; } =
-        config.Bind("Lobby", "SummaryMsgBreakdown", GameSummaryAppearance.Advanced);
+        config.Bind("Sala", "SummaryMsgBreakdown", GameSummaryAppearance.Advanced);
 
     [LocalEnumSetting(names: ["DraftAudioStart", "DraftAudioYourTurn", "DraftAudioBoth", "DraftAudioNone"])]
     public ConfigEntry<DraftAudioCueMode> DraftAudioCue { get; private set; } =
@@ -54,13 +54,13 @@ public class TouLocalTabPractice(ConfigFile config) : LocalSettingsTab(config)
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ZoomingInLobby { get; private set; } =
-        config.Bind("Lobby", "ZoomingInLobby", true);
+        config.Bind("Sala", "ZoomingInLobby", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ZoomingInPractice { get; private set; } =
-        config.Bind("Practice Mode", "ZoomingInPractice", true);
+        config.Bind("Modo Práctica", "ZoomingInPractice", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> ShowPracticeButtons { get; private set; } =
-        config.Bind("Practice Mode", "ShowPracticeButtons", true);
+        config.Bind("Modo Práctica", "ShowPracticeButtons", true);
 }

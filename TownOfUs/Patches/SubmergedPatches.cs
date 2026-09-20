@@ -48,7 +48,7 @@ public static class SubmergedHudPatch
 
             if (SubmergedFloorButton)
             {
-                SubmergedFloorButton.SetActive(!ghost.GhostActive);
+                SubmergedFloorButton.SetActive(true);
             }
         }
     }

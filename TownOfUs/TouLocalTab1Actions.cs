@@ -50,19 +50,19 @@ public class TouLocalTabActions(ConfigFile config) : LocalSettingsTab(config)
 
     [LocalToggleSetting]
     public ConfigEntry<bool> SelfKillBindToggle { get; private set; } =
-        config.Bind("Keybind Toggles", "SelfKillBindToggle", false);
+        config.Bind("Atajos de teclado", "SelfKillBindToggle", false);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> AbortGameBindToggle { get; private set; } =
-        config.Bind("Keybind Toggles", "AbortGameBindToggle", true);
+        config.Bind("Atajos de teclado", "AbortGameBindToggle", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> StartMeetingBindToggle { get; private set; } =
-        config.Bind("Keybind Toggles", "StartMeetingBindToggle", true);
+        config.Bind("Atajos de teclado", "StartMeetingBindToggle", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> EndMeetingBindToggle { get; private set; } =
-        config.Bind("Keybind Toggles", "EndMeetingBindToggle", true);
+        config.Bind("Atajos de teclado", "EndMeetingBindToggle", true);
 
     private static void DoActionType(BindActionType type)
     {

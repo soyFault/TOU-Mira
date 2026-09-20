@@ -31,15 +31,15 @@ public class TouLocalTabPreferences(ConfigFile config) : LocalSettingsTab(config
 
     [LocalSliderSetting(min: 4f, max: 15f, suffixType: MiraNumberSuffixes.Seconds, formatString: "0", displayValue: true, roundValue: true)]
     public ConfigEntry<float> AutoRejoinDelay { get; private set; } =
-        config.Bind("End Game Screen", "AutoRejoinDelay", 4f);
+        config.Bind("Final de Partida", "AutoRejoinDelay", 4f);
 
     [LocalEnumSetting(names: ["EndRejoinAlways", "EndRejoinHost", "EndRejoinClient", "EndRejoinNever"])]
     public ConfigEntry<AutoRejoinSelection> AutoRejoinMode { get; private set; } =
-        config.Bind("End Game Screen", "AutoRejoinSelection", AutoRejoinSelection.Always);
+        config.Bind("Final de Partida", "AutoRejoinSelection", AutoRejoinSelection.Always);
 
     [LocalEnumSetting(names: ["EndSumHidden", "EndSumSplit", "EndSumLeftSide"])]
     public ConfigEntry<EndGameSummaryVisibility> EndSummaryVisibility { get; private set; } =
-        config.Bind("End Game Screen", "EndSummaryVisibility", EndGameSummaryVisibility.LeftSide);
+        config.Bind("Final de Partida", "EndSummaryVisibility", EndGameSummaryVisibility.LeftSide);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> SortGuessingByAlignmentToggle { get; private set; } =
@@ -57,15 +57,15 @@ public class TouLocalTabPreferences(ConfigFile config) : LocalSettingsTab(config
     public ConfigEntry<bool> DeadSeeGhostsToggle { get; private set; } = config.Bind("Miscellaneous", "DeadSeeGhosts", true);
 
     [LocalToggleSetting]
-    public ConfigEntry<bool> ShowVentsToggle { get; private set; } = config.Bind("Miscellaneous", "ShowVents", true);
+    public ConfigEntry<bool> ShowVentsToggle { get; private set; } = config.Bind("Misceláneos", "ShowVents", true);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> RoleIconOnReveal { get; private set; } =
-        config.Bind("Miscellaneous", "RoleIconOnReveal", false);
+        config.Bind("Misceláneos", "RoleIconOnReveal", false);
 
     [LocalToggleSetting]
     public ConfigEntry<bool> RainbowColorAsFortegreen { get; private set; } =
-        config.Bind("Miscellaneous", "RainbowColorAsFortegreen", false);
+        config.Bind("Misceláneos", "RainbowColorAsFortegreen", false);
 }
 
 public enum GameSummaryAppearance
