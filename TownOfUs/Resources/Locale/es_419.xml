@@ -3652,5 +3652,4 @@ Nadie puede interactuar contigo.</string>
 <string name="TouOptionPlayerCountWhenSabotagesDisable">Jugadores Vivos para desactivar sabotajes</string>
 <string name="TouOptionCanSabotageWhenDead">Puede sabotear si murió</string>
 <string name="TouOptionGhostwalkerVentSpawn">Auto-Ducto para caminantes fantasma al aparecer</string>
-
 </resources>
