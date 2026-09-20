@@ -253,7 +253,7 @@ internal static class PerfectCommsIntegration
         renderer.sprite = TouAssets.JailUnmute.LoadAsset();
         renderer.color = Color.white;
 
-        label.text = MiraLocaleManager.Get("TownOfUsMira.Role.JailorAllowVoice", "Allow Voice");
+        label.text = MiraLocaleManager.Get("TownOfUsMira.Role.JailorAllowVoice", "Permitir voz");
 
         var passive = buttonObject.GetComponent<PassiveButton>();
         ConfigureJailVoiceButtonHitbox(buttonObject, passive, renderer);
@@ -397,22 +397,22 @@ internal static class PerfectCommsRuntime
 
     // Object-typed caches keep Perfect Comms types out of this type's field signatures. This matters
     // when Harmony enumerates TOU types while the optional runtime assembly is absent.
-    private static readonly object HackedMuted = VoiceRuleResult.Mute("Hacked");
-    private static readonly object SwoopedMuted = VoiceRuleResult.Mute("Swooped");
-    private static readonly object BlackmailedMuted = VoiceRuleResult.Mute("Blackmailed");
-    private static readonly object JailedMuted = VoiceRuleResult.Mute("Jailed");
-    private static readonly object ParasiteMuted = VoiceRuleResult.Mute("Parasite controlled");
-    private static readonly object PuppeteerMuted = VoiceRuleResult.Mute("Puppeteer controlled");
-    private static readonly object MediumPrivateMuted = VoicePairResult.Mute("Medium private voice");
-    private static readonly object MediumDirectionMuted = VoicePairResult.Mute("Medium direction disabled");
-    private static readonly object NonSelectedGhostMuted = VoicePairResult.Mute("Non-selected ghost");
+    private static readonly object HackedMuted = VoiceRuleResult.Mute("Hackeado");
+    private static readonly object SwoopedMuted = VoiceRuleResult.Mute("Esfumado");
+    private static readonly object BlackmailedMuted = VoiceRuleResult.Mute("Extorsionado");
+    private static readonly object JailedMuted = VoiceRuleResult.Mute("Encarcelado");
+    private static readonly object ParasiteMuted = VoiceRuleResult.Mute("Controlado por el Parásito");
+    private static readonly object PuppeteerMuted = VoiceRuleResult.Mute("Controlado por el Titiritero");
+    private static readonly object MediumPrivateMuted = VoicePairResult.Mute("Voz privada del Médium");
+    private static readonly object MediumDirectionMuted = VoicePairResult.Mute("Dirección de voz del Medium desactivada");
+    private static readonly object NonSelectedGhostMuted = VoicePairResult.Mute("Fantasma no seleccionado");
     private static readonly object ListenerMuffled = new VoiceListenerFilterResult(true);
     private static readonly object ListenerSightObscured =
         new VoiceListenerFilterResult(false) { SightObscured = true };
     private static readonly object ListenerMuffledAndSightObscured =
         new VoiceListenerFilterResult(true) { SightObscured = true };
     private static readonly object ListenerNormal = new VoiceListenerFilterResult(false);
-    private static readonly object VampireRadio = new VoiceManagedRadioChannelResult("vampires", "Vampires", "V");
+    private static readonly object VampireRadio = new VoiceManagedRadioChannelResult("vampires", "Vampiros", "V");
     private static readonly Dictionary<ushort, object> LoverRadios = [];
 
     private static bool _registered;
@@ -475,6 +475,7 @@ internal static class PerfectCommsRuntime
         PerfectCommsApi.RegisterModTab(id, "TOU Mira");
 
         RegisterToggle(MuteBlackmailedInMeetings,
+<<<<<<< HEAD
         $"<color=#FF0000><b>{MiraLocaleManager.Get("TownOfUsMira.Role.Blackmailer", "Blackmailer")}</b></color>: {MiraLocaleManager.Get("TouPerfectCommsMuteBlackmailedInMeetings", "Mute Blackmailed in Meetings")}", true,
         MiraLocaleManager.Get("TouPerfectCommsMuteBlackmailedInMeetingsDescription",
             "Prevents the currently blackmailed player from transmitting voice during meetings."));
@@ -578,6 +579,73 @@ internal static class PerfectCommsRuntime
                 MediumGhostVoice),
         });
 }
+=======
+            "<color=#FF0000><b>Extorsionador</b></color>: Silenciar extorsionado en reuniones", true,
+            "Evita que el jugador extorsionado transmita su voz durante las reuniones.");
+        RegisterToggle(MuteBlackmailedNextRound,
+            "<color=#FF0000><b>Extorsionador</b></color>: Silenciar extorsionado en la próxima ronda", false,
+            "Mantiene silenciado al jugador extorsionado durante la siguiente ronda de tareas.");
+        RegisterToggle(MuteParasiteControlled,
+            "<color=#FF0000><b>Parásito</b></color>: Silenciar víctima controlada", true,
+            "Evita que un jugador marcado por el Parásito transmita su propia voz mientras el efecto esté activo.");
+        RegisterToggle(ParasiteHearFromVictim,
+            "<color=#FF0000><b>Parásito</b></color>: También escuchar víctima controlada", true,
+            "Permite que el Parásito escuche las voces cercanas a su víctima marcada sin abandonar su propia posición.");
+        RegisterToggle(MutePuppeteerControlled,
+            "<color=#FF0000><b>Titiritero</b></color>: Silenciar víctima controlada", true,
+            "Evita que un jugador controlado por el Titiritero transmita su propia voz mientras esté controlado.");
+        RegisterToggle(PuppeteerHearFromVictim,
+            "<color=#FF0000><b>Titiritero</b></color>: Escuchar desde la víctima controlada", true,
+            "Permite que el Titiritero escuche las voces cercanas al jugador que controla.");
+        RegisterToggle(MuteSwooperWhileSwooped,
+            "<color=#FF0000><b>Esfumador</b></color>: Silenciar mientras está esfumado", true,
+            "Evita que un Esfumador invisible transmita su voz hasta que termine el efecto.");
+        RegisterToggle(MuffleBlindedOrFlashedHearing,
+            "<color=#FF0000><b>Cegador/Granadero</b></color>: Atenuar al estar cegado", true,
+            "Atenúa las voces recibidas durante las tareas cuando el jugador está cegado por Eclipsal o aturdido por Grenadier.");
+        RegisterToggle(MuffleHypnotizedDuringHysteria,
+            "<color=#FF0000><b>Hipnotista</b></color>: Atenuar hipnotizados durante la Histeria", true,
+            "Atenúa las voces recibidas durante las tareas de los jugadores hipnotizados mientras Histeria Masiva esté activa.");
+        RegisterToggle(CrewpostorUsesImpostorVoice,
+            "<color=#FF0000><b>Tripostor</b></color>: Usar voz de impostor", true,
+            "Trata al Tripostor como impostor para la voz privada de impostores y la radio de equipo.");
+        RegisterToggle(MuteGlitchHacked,
+            "<color=#00FF00><b>Glitch</b></color>: Silenciar jugadores hackeados", true,
+            "Evita que un jugador afectado por Hack de Glitch transmita su voz hasta que termine el efecto.");
+        RegisterToggle(MuteJailedInMeetings,
+            "<color=#A6A6A6><b>Carcelero</b></color>: Silenciar encarcelado en reuniones", true,
+            "Evita que el jugador encarcelado transmita su voz durante las reuniones, salvo que el Carcelero le permita hablar temporalmente.");
+        RegisterToggle(JailPersistsAfterJailorDeath,
+            "<color=#A6A6A6><b>Carcelero</b></color>: La cárcel persiste si muere el Carcelero", false,
+            "Mantiene activa la restricción de voz del encarcelado aunque el Carcelero haya muerto.",
+            context => context.GetOption(MuteJailedInMeetings));
+        RegisterToggle(JailorCanUnmuteJailed,
+            "<color=#A6A6A6><b>Carcelero</b></color>: Puede permitir hablar al encarcelado", true,
+            "Permite que el Carcelero deje hablar temporalmente al jugador encarcelado durante una reunión.");
+        RegisterToggle(TeamRadioVampires,
+            "Radio de Equipo - <color=#A32929><b>Vampiros</b></color>", true,
+            "Activa el canal privado de radio de equipo de los Vampiros cuando Radio de equipo está activada.",
+            context => context.TeamRadioEnabled);
+        RegisterToggle(TeamRadioLovers,
+            "Radio de Equipo - <color=#FF66CC><b>Enamorados</b></color>", true,
+            "Activa el canal privado de radio de equipo de los Enamorados cuando Radio de equipo está activada.",
+            context => context.TeamRadioEnabled);
+
+        PerfectCommsApi.RegisterHostEnumOption(
+            TownOfUsPlugin.Id,
+            new VoiceHostEnumOption(
+                MediumGhostVoice,
+                "<color=#A680FF><b>Médium</b></color>: Voz de fantasmas",
+                0,
+                ["Ninguna", "Medium -> Fantasma", "Fantasma -> Medium", "Ambas"])
+            {
+                Description = "Elige qué dirección de voz se permite entre el Medium y los jugadores muertos durante las tareas.",
+                LegacyBinding = new VoiceHostOptionLegacyBinding(
+                    LegacyRoleOptionsSection,
+                    MediumGhostVoice),
+            });
+    }
+>>>>>>> origin/custom-main
 
     private static void RegisterToggle(
         string key,
@@ -844,7 +912,7 @@ internal static class PerfectCommsRuntime
         ushort pairId = (ushort)((low << 8) | high);
         if (!LoverRadios.TryGetValue(pairId, out var cached))
         {
-            cached = new VoiceManagedRadioChannelResult($"lovers:{low}:{high}", "Lovers", "L");
+            cached = new VoiceManagedRadioChannelResult($"lovers:{low}:{high}", "Enamorados", "L");
             LoverRadios[pairId] = cached;
         }
 
